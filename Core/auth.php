@@ -1,18 +1,7 @@
 <?php
-// include "dbconn.php";
-
-// ----funstion to get user id
 session_start();
 
-function getUserId(){
-    $conn = dbconnect();
-    $email= $_SESSION['email'];
-    $sql = "SELECT id FROM users WHERE email = '$email';";
-    $result = mysqli_query($conn,$sql);
-    $row = mysqli_fetch_assoc($result);
-    $user_id = $row['id'];
-    return $user_id;
-}
+
 
 
 

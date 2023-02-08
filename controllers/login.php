@@ -1,5 +1,5 @@
 <?php
-include "../auth.php";
+include "../Core/auth.php";
 // session_start();
 $conn = dbconnect();
 if (isset($_POST["submit"])){
