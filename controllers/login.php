@@ -21,7 +21,8 @@ if (isset($_POST["submit"])){
         $user_registration = createUser($email,$password);
         if($user_registration) {
             $_SESSION['email'] = $email;
-            header("Location: /dashboard");
+            // pop up to confirm new user creation 
+            header("Location: /settings");
         }
         else {
             echo "User Registration failed.Please try again later.";

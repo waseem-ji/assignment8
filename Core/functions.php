@@ -116,3 +116,52 @@ function inputToPosts($data)
     mysqli_query($conn, $sql);
 }
  //----------------------------------  END of Fn to input dataa to database -----------------------
+ 
+ 
+ 
+ 
+ //----------------------------------  Fn to get user details -----------------------
+
+ function getUserData() {
+    $conn = dbconnect();
+    $user_id = getUserId();
+    $sql = "SELECT * FROM users WHERE id='$user_id';";
+    $result =  mysqli_query($conn,$sql);
+    return $result;
+ }
+
+
+ //----------------------------------  Fn to input User info to DB -----------------------
+
+function updateUsers($table, $data, $where)
+{
+    // dd($input_array);
+    // $user_id = getUserId();
+    $conn = dbconnect();
+    $cols = array();
+    foreach($data as $key=>$val) {
+        $cols[] = "$key = '$val'";
+    }
+    $sql = "UPDATE $table SET " . implode(', ', $cols) . " WHERE $where";
+    mysqli_query($conn, $sql);
+}
+
+ //----------------------------------  END of Fn to input User info to DB -----------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ //----------------------------------   Fn to update email and passsword -----------------------
+
+ function updateEmailAndPassword($email,$password,$id) {
+    $conn = dbconnect();
+    $sql = "UPDATE users SET email='$email' , password='$password' WHERE id=$id;";
+    mysqli_query($conn,$sql);
+ }
+ //----------------------------------  END of Fn to update email and passsword -----------------------
+
+ 
+
