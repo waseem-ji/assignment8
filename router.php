@@ -9,8 +9,10 @@ $routes = [
     "/dashboard" => base_path("controllers/dashboard.php"),
     "/profile" => base_path("controllers/profile.php"),
     "/update-profile" => base_path("controllers/update-profile.php"),
+    "/update-post" => base_path("controllers/update-post.php"),
     "/forms" => base_path("controllers/form-handle.php"),
     "/settings" => base_path("controllers/user-registration.php"),
+    "/delete" => base_path("controllers/delete.php")
 
 
 ];

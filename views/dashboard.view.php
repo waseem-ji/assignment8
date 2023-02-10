@@ -1,7 +1,5 @@
 <?php
 require "partials/head.php";
-
-
 require "partials/nav.php"
 ?>
 <div class="bg-indigo-100">
@@ -16,7 +14,7 @@ require "partials/nav.php"
                             <img class="h-auto w-full mx-auto" src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg" alt="">
                         </div>
                         <!-- Include tags here -->
-                        <p>Tags go heere</p>
+                        <div><?php require "../controllers/tags.php" ?></div>
                     </div>
                     <!-- End of profile card -->
                     <div class="my-4"></div>
@@ -43,7 +41,7 @@ require "partials/nav.php"
                     <!-- Experience and education -->
                     <div class="bg-white p-3 shadow-sm rounded-sm">
 
-                        <div class="mt-3 flex flex-col p-5">
+                        <div id="posts" class="mt-3  flex flex-col p-5">
 
                             <?php require "partials/posts.php" ?>
 

@@ -2,21 +2,22 @@
 
 $heading = "DashBoard";
 
-$posts = collectAllPosts();
-// dd($posts);
-// $posts = $posts[0];
-// echo $posts[''];
-// if(mysqli_num_rows($posts)>0) {
-//     foreach($posts as $post) {
-//         // dd($post);
-//         echo $post['title'];
-//         echo $post['description'];
-//         echo $post['date'];
-//         echo $post['tag'];
-//         // echo $post['image'];
-//     }
-// }
-view("dashboard.view.php",[
+
+if (isset($_GET['tag'])) {
+    $tag_id = getTagId($_GET['tag']);
+    $posts = collectAllPosts($tag_id);
+} else {
+    $posts = collectAllPosts();
+}
+$users = getUserData();
+foreach ($users as $user) {
+    $user_name = $user['firstname'] . " " . $user['lastname'];
+    $user_profile_pic = $user['profile_pic'];
+}
+
+view("dashboard.view.php", [
     'heading' => $heading,
-    'posts' => $posts
+    'posts' => $posts,
+    'username' => $user_name,
+    'user_profile_pic' => $user_profile_pic
 ]);
